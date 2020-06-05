@@ -62,10 +62,16 @@ namespace CS.Utils
             Console.ReadKey();
         }
 
-        public static void WaitKeyPress()
-        {
-            Console.WriteLine("Для продолжения нажмите любую клавишу...");
-            Console.ReadKey();
+        public static void WaitNextPress()
+        {            
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                Console.WriteLine("Для продолжения нажмите клавишу F3...");
+                keyInfo = Console.ReadKey();
+                Console.WriteLine();
+            }
+            while (keyInfo.Key != ConsoleKey.F3);
         }
 
         public static void Clear()
@@ -115,14 +121,17 @@ namespace CS.Utils
         public static void HomeworkTitle(int lesson)
         {            
             ConsoleUtils.Print($"Домашнее задание к уроку №{lesson}.");
-            ConsoleUtils.Print("Автор: Полятыкина Татьяна"); 
+            ConsoleUtils.Print("Автор: Полятыкина Татьяна");
+            ConsoleUtils.Print("");
         }
 
         public static void HomeworkTask(int task, string text)
         {
+            ConsoleUtils.Clear();
             ConsoleUtils.Print($"Задача № {task}.");
             ConsoleUtils.Print(text);
             ConsoleUtils.Print("Автор: Полятыкина Татьяна");
+            ConsoleUtils.Print("");
         }
     }
 }
