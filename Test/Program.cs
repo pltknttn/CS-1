@@ -10,9 +10,7 @@ namespace Test
     class Program
     {
         static void Main(string[] args)
-        {            
-            ConsoleUtils.Print("еУЫЕ");
-            ConsoleUtils.Pause();
+        {             
         }
     }
 }
