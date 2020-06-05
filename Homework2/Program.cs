@@ -10,7 +10,7 @@ namespace Homework2
     class Program
     {      
         /* Домашнее задание №2         
-           Автор: Полятыкина Татьяна
+          Автор: Полятыкина Татьяна
          */
 
         static ConsoleKey Menu()

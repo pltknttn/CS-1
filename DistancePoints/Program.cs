@@ -2,8 +2,6 @@
 
 namespace DistanceBetweenPoints
 {
-    /*Автор: Полятыкина Татьяна*/
-
     class Program
     {
         /// <summary>

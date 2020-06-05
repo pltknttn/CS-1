@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace Homework2
 {
     public static class Homework
-    {
-        /*Автор: Полятыкина Татьяна*/
-
+    {         
         /// <summary>
         /// Задача №1
         /// </summary>
