@@ -4,6 +4,8 @@ namespace MyProfile
 {
     class Program
     {
+        /*Автор: Полятыкина Татьяна*/
+
         /// <summary>
         /// Печать
         /// </summary>

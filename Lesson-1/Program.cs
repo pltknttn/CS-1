@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson_1
 {
+    /*Автор: ----------*/
     class Program
     {
         static void SumAB()

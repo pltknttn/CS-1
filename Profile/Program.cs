@@ -2,6 +2,8 @@
 
 namespace Profile
 {
+    /*Автор: Полятыкина Татьяна*/
+
     class Program
     {        
         /// <summary>

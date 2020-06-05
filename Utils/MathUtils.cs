@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace CS.Utils
 {
+    /*Автор: Полятыкина Татьяна*/
+
     public static partial class MathUtils
     {
         #region Min
