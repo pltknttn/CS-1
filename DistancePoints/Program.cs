@@ -2,6 +2,7 @@
 
 namespace DistanceBetweenPoints
 {
+    /*Расстояние между точками*/
     class Program
     {
         /// <summary>

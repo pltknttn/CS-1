@@ -4,6 +4,7 @@ namespace ExchangeOfValues
 {
     class Program
     {
+        /*Обмен между 2мя переменными*/
         static void Main()
         {
             Console.WriteLine("Программа обмена значениями между 2-мя переменными");
