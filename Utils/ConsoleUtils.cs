@@ -63,7 +63,8 @@ namespace CS.Utils
         }
 
         public static void WaitNextPress()
-        {            
+        {
+            Console.WriteLine("");
             ConsoleKeyInfo keyInfo;
             do
             {
