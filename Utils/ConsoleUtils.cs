@@ -24,6 +24,12 @@ namespace CS.Utils
             Console.WriteLine(msg);
         }
 
+        public static void Print(string msg, ConsoleColor foregroundColor)
+        {  
+            Console.ForegroundColor = foregroundColor;
+            Console.WriteLine(msg);
+        }
+
         /// <summary>
         /// Печать
         /// </summary>
