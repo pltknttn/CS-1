@@ -34,7 +34,7 @@ namespace Homework3
 
         static void Task1()
         {
-            ConsoleUtils.HomeworkTask(1, "Демонстрация стуктуры Complex, вычитание комплексных чисел");
+            ConsoleUtils.HomeworkTask(1, "1. а) Демонстрация стуктуры Complex, вычитание комплексных чисел");
                         
             Struct.Complex complex1 = new Struct.Complex();            
             SetComplex(ref complex1, 1);
@@ -43,20 +43,20 @@ namespace Homework3
             SetComplex(ref complex2, 2); 
 
             Struct.Complex result = complex1.Plus(complex2);
-            ConsoleUtils.Print($"{complex1.ToString()} + {complex2.ToString()} = " + result.ToString());
+            ConsoleUtils.Print($"({complex1.ToString()}) + ({complex2.ToString()}) = " + result.ToString());
 
             result = complex1.Multi(complex2);
-            ConsoleUtils.Print($"{complex1.ToString()} * {complex2.ToString()} = " + result.ToString());
+            ConsoleUtils.Print($"({complex1.ToString()}) * ({complex2.ToString()}) = " + result.ToString());
 
             result = complex1.Minus(complex2);
-            ConsoleUtils.Print($"{complex1.ToString()} - {complex2.ToString()} = " + result.ToString());
+            ConsoleUtils.Print($"({complex1.ToString()}) - ({complex2.ToString()}) = " + result.ToString());
 
             ConsoleUtils.WaitNextPress();
         }
 
         static void Task2()
         {
-            ConsoleUtils.HomeworkTask(2, "Демонстрация класса Complex, вычитание и произведение комплексных чисел");
+            ConsoleUtils.HomeworkTask(1, "1. б) Демонстрация класса Complex, вычитание и произведение комплексных чисел");
 
             Class.Complex complex1 = new Class.Complex();
             SetComplex(complex1, 1);
@@ -65,20 +65,20 @@ namespace Homework3
             SetComplex(complex2, 2);
 
             Class.Complex result = complex1.Plus(complex2);
-            ConsoleUtils.Print($"{complex1.ToString()} + {complex2.ToString()} = " + result.ToString());
+            ConsoleUtils.Print($"({complex1.ToString()}) + ({complex2.ToString()}) = " + result.ToString());
 
             result = complex1.Multi(complex2);
-            ConsoleUtils.Print($"{complex1.ToString()} * {complex2.ToString()} = " + result.ToString());
+            ConsoleUtils.Print($"({complex1.ToString()}) * ({complex2.ToString()}) = " + result.ToString());
 
             result = complex1.Minus(complex2);
-            ConsoleUtils.Print($"{complex1.ToString()} - {complex2.ToString()} = " + result.ToString());
+            ConsoleUtils.Print($"({complex1.ToString()}) - ({complex2.ToString()}) = " + result.ToString());
 
             ConsoleUtils.WaitNextPress();
         }
 
         static void Task3()
         {
-            ConsoleUtils.HomeworkTask(3, "Добавить диалог с использованием switch демонстрирующий работу класса Complex");
+            ConsoleUtils.HomeworkTask(1, "1. в) Добавить диалог с использованием switch демонстрирующий работу класса Complex");
             
             Class.Complex complex1 = new Class.Complex();
             SetComplex(complex1, 1);
@@ -92,15 +92,15 @@ namespace Homework3
             {
                 case 1:
                     result = complex1.Plus(complex2);
-                    ConsoleUtils.Print($"{complex1.ToString()} + {complex2.ToString()} = " + result.ToString());
+                    ConsoleUtils.Print($"({complex1.ToString()}) + ({complex2.ToString()}) = " + result.ToString());
                     break;
                 case 2:
                     result = complex1.Minus(complex2);
-                    ConsoleUtils.Print($"{complex1.ToString()} - {complex2.ToString()} = " + result.ToString());
+                    ConsoleUtils.Print($"({complex1.ToString()}) - ({complex2.ToString()}) = " + result.ToString());
                     break;
                 case 3:
                     result = complex1.Multi(complex2);
-                    ConsoleUtils.Print($"{complex1.ToString()} * {complex2.ToString()} = " + result.ToString());
+                    ConsoleUtils.Print($"({complex1.ToString()}) * ({complex2.ToString()}) = " + result.ToString());
                     break;
                 default:
                     ConsoleUtils.Print("Такой операции нет");
@@ -112,7 +112,7 @@ namespace Homework3
 
         static void Task4()
         {
-            ConsoleUtils.HomeworkTask(4, "Посчитать сумму всех нечетных положительных чисел");
+            ConsoleUtils.HomeworkTask(2, "Посчитать сумму всех нечетных положительных чисел");
             ConsoleUtils.Print("Введите целые числа (для остановки введите 0):");
             
             string oddNumbers = string.Empty;
@@ -132,7 +132,7 @@ namespace Homework3
                 oddNumbers = $"{oddNumbers};{number}";
             }
 
-            oddNumbers.TrimStart(';'); 
+            oddNumbers = oddNumbers.TrimStart(';'); 
 
             ConsoleUtils.Print($"Сумма нечетных положительных чисел \"{oddNumbers}\" равна {sum}");
             ConsoleUtils.WaitNextPress();
@@ -159,7 +159,7 @@ namespace Homework3
             - Добавить упрощение дробей*/
 
 
-            ConsoleUtils.HomeworkTask(5, @"Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел.
+            ConsoleUtils.HomeworkTask(3, @"Описать класс дробей — рациональных чисел, являющихся отношением двух целых чисел.
             Предусмотреть методы сложения, вычитания, умножения и деления дробей.Написать
             программу, демонстрирующую все разработанные элементы класса.
             - Добавить свойства типа int для доступа к числителю и знаменателю;
@@ -179,40 +179,41 @@ namespace Homework3
 
             do
             {
+                ConsoleUtils.Print("", ConsoleColor.White);
 
-                answer = ConsoleUtils.ReadInt("Выберите операцию: 1 - сложить, 2 - разница, 3 - умножение, 4 - деление, 5 - упрощение, 6 - десятичная дробь, 0 - завершить");
-
+                answer = ConsoleUtils.ReadInt("Выберите операцию: \n\r1 - сложить, 2 - разница, 3 - умножение, 4 - деление, 5 - упрощение, 6 - десятичная дробь, 0 - завершить");
+                 
                 switch (answer)
                 {
                     case 0: break;
                     case 1:
                         result = fraction1.Plus(fraction2);
-                        ConsoleUtils.Print($"{fraction1.ToString()} + {fraction2.ToString()} = " + result.ToString());
+                        ConsoleUtils.Print($"{fraction1.ToString()} + {fraction2.ToString()} = " + result.ToString(), ConsoleColor.Red);
                         break;
                     case 2:
                         result = fraction1.Minus(fraction2);
-                        ConsoleUtils.Print($"{fraction1.ToString()} - {fraction2.ToString()} = " + result.ToString());
+                        ConsoleUtils.Print($"{fraction1.ToString()} - {fraction2.ToString()} = " + result.ToString(), ConsoleColor.Green);
                         break;
                     case 3:
                         result = fraction1.Multi(fraction2);
-                        ConsoleUtils.Print($"{fraction1.ToString()} * {fraction2} = " + result.ToString());
+                        ConsoleUtils.Print($"{fraction1.ToString()} * {fraction2.ToString()} = " + result.ToString(), ConsoleColor.DarkGreen);
                         break;
                     case 4:
                         result = fraction1.Divide(fraction2);
-                        ConsoleUtils.Print($"{fraction1.ToString()} * {fraction2.ToString()} = " + result.ToString());
+                        ConsoleUtils.Print($"{fraction1.ToString()} * {fraction2.ToString()} = " + result.ToString(), ConsoleColor.DarkRed);
                         break;
                     case 5:
                         result = fraction1.Reduction();
-                        ConsoleUtils.Print($"{fraction1.ToString()} = " + result.ToString());
+                        ConsoleUtils.Print($"{fraction1.ToString()} = " + result.ToString(), ConsoleColor.Red);
                         result = fraction2.Reduction();
-                        ConsoleUtils.Print($"{fraction2.ToString()} = " + result.ToString());
+                        ConsoleUtils.Print($"{fraction2.ToString()} = " + result.ToString(), ConsoleColor.Red); 
                         break;
                     case 6:
-                        ConsoleUtils.Print($"{fraction1.ToString()} = " + fraction1.Point.ToString());
-                        ConsoleUtils.Print($"{fraction2.ToString()} = " + fraction2.Point.ToString());
+                        ConsoleUtils.Print($"{fraction1.ToString()} = " + fraction1.Point.ToString("f4"), ConsoleColor.DarkGray);
+                        ConsoleUtils.Print($"{fraction2.ToString()} = " + fraction2.Point.ToString("f4"), ConsoleColor.DarkGray);
                         break;
                     default:
-                        ConsoleUtils.Print("Такой операции нет");
+                        ConsoleUtils.Print("Такой операции нет", ConsoleColor.DarkMagenta);
                         break;
                 }
             }
@@ -224,13 +225,15 @@ namespace Homework3
         static ConsoleKey Menu()
         {
             ConsoleUtils.Clear();
+            ConsoleUtils.Print("", ConsoleColor.White);
             ConsoleUtils.HomeworkTitle(2);
-            ConsoleUtils.Print("Выберите задачу (для выхода нажмите Esc):");
-            ConsoleUtils.Print("1 - Задача №1");
-            ConsoleUtils.Print("2 - Задача №2");
-            ConsoleUtils.Print("3 - Задача №3");
-            ConsoleUtils.Print("4 - Задача №4");
-            ConsoleUtils.Print("5 - Задача №5");
+            ConsoleUtils.Print("Выберите задачу (для выхода нажмите Esc):", ConsoleColor.DarkGreen);
+            ConsoleUtils.Print("1 - Задача №1 - а)");
+            ConsoleUtils.Print("2 - Задача №1 - б)");
+            ConsoleUtils.Print("3 - Задача №1 - в)");
+            ConsoleUtils.Print("4 - Задача №2");
+            ConsoleUtils.Print("5 - Задача №3");
+            ConsoleUtils.Print("", ConsoleColor.White);
             ConsoleKeyInfo keyInfo = Console.ReadKey();
             Console.WriteLine();
             return keyInfo.Key;

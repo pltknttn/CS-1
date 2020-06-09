@@ -47,7 +47,7 @@ namespace Homework3.Class
         //сложение  
         public Fraction Plus(Fraction x)
         {
-            int greatestCommonDivisor = GetGreatestCommonDivisor(x.Denominator, denominator);
+            int greatestCommonDivisor = GetLeastCommonMultiple(x.Denominator, denominator);
 
             Fraction y = new Fraction();
             y.denominator = greatestCommonDivisor;
@@ -59,7 +59,7 @@ namespace Homework3.Class
         //вычитание 
         public Fraction Minus(Fraction x)
         {
-            int greatestCommonDivisor = GetGreatestCommonDivisor(x.Denominator, this.denominator);
+            int greatestCommonDivisor = GetLeastCommonMultiple(x.Denominator, this.denominator);
 
             Fraction y = new Fraction();
             y.denominator = greatestCommonDivisor;
