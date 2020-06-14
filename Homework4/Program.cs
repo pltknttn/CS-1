@@ -147,7 +147,7 @@ namespace Homework4
 
             if (isAutorize)
             {
-                ConsoleUtils.Print("Проверка пройдена. Спасибо!");
+                ConsoleUtils.Print("Проверка пройдена.");
                 return true;
             }
 
