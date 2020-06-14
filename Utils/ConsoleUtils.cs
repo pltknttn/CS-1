@@ -52,6 +52,15 @@ namespace CS.Utils
         }
 
         /// <summary>
+        /// Печать
+        /// </summary>
+        /// <param name="msg"></param>
+        public static void Print()
+        {
+            Console.WriteLine("");
+        }
+
+        /// <summary>
         /// Пауза с параметром
         /// </summary>
         public static void Pause(string message)
@@ -79,6 +88,19 @@ namespace CS.Utils
                 Console.WriteLine();
             }
             while (keyInfo.Key != ConsoleKey.F3);
+        }
+
+        public static void WaitExitPress()
+        {
+            Console.WriteLine("");
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                Console.WriteLine("Для выхода нажмите клавишу Esc...");
+                keyInfo = Console.ReadKey();
+                Console.WriteLine();
+            }
+            while (keyInfo.Key != ConsoleKey.Escape);
         }
 
         public static void Clear()
