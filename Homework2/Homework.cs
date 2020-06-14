@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Homework2
 {
     public static class Homework
-    {
+    {         
         /// <summary>
         /// Задача №1
         /// </summary>
@@ -18,8 +18,8 @@ namespace Homework2
             decimal a = ConsoleUtils.ReadDecimal("Введите 1-ое число:");
             decimal b = ConsoleUtils.ReadDecimal("Введите 2-ое число:");
             decimal c = ConsoleUtils.ReadDecimal("Введите 3-ое число:");
-            ConsoleUtils.Print($"Минимальное число равно {MathUtils.Min(a, b, c)}");
-            ConsoleUtils.WaitKeyPress();
+            ConsoleUtils.Print($"Минимальное число ({a}, {b}, {c}) равно {MathUtils.Min(a, b, c)}");
+            ConsoleUtils.WaitNextPress();
         }
 
         /// <summary>
@@ -29,8 +29,8 @@ namespace Homework2
         {
             ConsoleUtils.HomeworkTask(2, "Подсчет количества цифр числа");
             long num = ConsoleUtils.ReadLong("Введите целое число:");
-            ConsoleUtils.Print($"Количество цифр равно {MathUtils.CountDigits(num)}");
-            ConsoleUtils.WaitKeyPress();
+            ConsoleUtils.Print($"Количество цифр в числе {num} равно {MathUtils.CountDigits(num)}");
+            ConsoleUtils.WaitNextPress();
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Homework2
             while (number != 0);
 
             ConsoleUtils.Print($"Сумма нечетных чисел равна {sum}");
-            ConsoleUtils.WaitKeyPress();
+            ConsoleUtils.WaitNextPress();
         }
 
         
@@ -90,10 +90,10 @@ namespace Homework2
         {
             ConsoleUtils.HomeworkTask(4, "Проверка логина и пароля");
             if (Login())
-                ConsoleUtils.Print("Авторизация пройдена и можно запусть основную программу!");
+                ConsoleUtils.Print("Авторизация пройдена.");
             else
-                ConsoleUtils.Print("Авторизация не пройдена и приложение закрывается");
-            ConsoleUtils.WaitKeyPress();
+                ConsoleUtils.Print("Авторизация не пройдена.");
+            ConsoleUtils.WaitNextPress();
         }
 
         /// <summary>
@@ -101,23 +101,26 @@ namespace Homework2
         /// </summary> 
         public static void Task5()
         {
-            ConsoleUtils.HomeworkTask(5, "Посчитать индекс массы тела и провести анализ лишнего веса");
-
-            int.TryParse(ConsoleUtils.Question("Ваш рост (в сантиметрах)?"), out int growth);
-            double weight = ConsoleUtils.ReadDouble("Ваш вес (в килограммах)?");
-            double bmi = MathUtils.CalcBodyMassaIndex(0.01 * growth, weight);
             double norma_min = 18.5;
             double norma_max = 25.0;
 
-            ConsoleUtils.Print($"Ваш ИМТ (индекс массы тела) равен {bmi:f2}");
+            ConsoleUtils.HomeworkTask(5, "Посчитать индекс массы тела (ИМТ) и провести анализ лишнего веса");      
+            ConsoleUtils.Print($"Норма ИМТ {norma_min:f2} от до {norma_max:f2}.");
 
+            int growth = ConsoleUtils.ReadInt("Ваш рост (в сантиметрах)?");
+            double weight = ConsoleUtils.ReadDouble("Ваш вес (в килограммах)?");
+            double bmi = MathUtils.CalcBodyMassaIndex(0.01 * growth, weight);
+           
+            ConsoleUtils.Print($"Ваш ИМТ равен {bmi:f2}");
+            
             if (bmi > norma_max)
                 ConsoleUtils.Print($"У Вас лишний вес, необходимо похудеть на {MathUtils.CalcBodyMassaToNorm(growth, norma_max):f2} кг до нормы.");
             else if (bmi < norma_min)
                 ConsoleUtils.Print($"У Вас дефицит в весе, необходимо набрать {MathUtils.CalcBodyMassaToNorm(growth, norma_min):f2} кг до нормы.");
             else
                 ConsoleUtils.Print($"У Вас нормальный вес.");
-            ConsoleUtils.WaitKeyPress();
+
+            ConsoleUtils.WaitNextPress();
         }
 
         /// <summary>
@@ -128,30 +131,42 @@ namespace Homework2
             ConsoleUtils.HomeworkTask(6, "Посчитать количество \"хороших\" числа в диапазоне от 1 до 1 000 000 000");
             DateTime start = DateTime.Now;
             int countGoodNumbers = 0;
+            int max = 1000000000;
 
-            for (int i = 1; i <= 1000000000; i++)
+            for (int i = 1; i <= max; i++)
             {
                 if (!MathUtils.IsGoodNumber(i)) continue;
-                countGoodNumbers++;
+                countGoodNumbers+=1;
+                if (i % 10000000 == 0)
+                    ConsoleUtils.Print($"Считаем {i}...");
             }
 
             TimeSpan finish = DateTime.Now - start;
             ConsoleUtils.Print($"Количество хороших чисел равно {countGoodNumbers}.");
-            ConsoleUtils.Print($"Время выполнения равно {finish}");
-            ConsoleUtils.WaitKeyPress();
+            ConsoleUtils.Print($"Время выполнения равно {finish}"); 
+            ConsoleUtils.WaitNextPress();
         }
 
-        static void Loop(long a, long b)
+        static void Loop(int a, int b)
         {
-            Console.Write("{0,4}", a);
-            if (a < b) Loop(a + 1, b);
+            if (a % 1000 == 0)
+                Console.WriteLine("{0,6}", a);
+            else if (a > 1000)
+                Console.Write("{0,6}", a);
+            else if (a > 100)
+                Console.Write("{0,5}", a);
+            else
+                Console.Write("{0,4}", a);
+
+            if (a < b)
+                Loop(a + 1, b);
         }
 
-        static long SumLoop(long a, long b)
+        static long SumLoop(int a, int b)
         {
             long sum = 0;
-            if (a < b) sum += SumLoop(a + 1, b);
-            return sum;
+            if (a < b) sum += SumLoop(a + 1, b);        
+            return sum += a;
         }
 
         /// <summary>
@@ -161,15 +176,16 @@ namespace Homework2
         {
             ConsoleUtils.HomeworkTask(7, "Вывести на экран числа от a до b (a < b), посчитать сумму этих числел");
 
-            long a = ConsoleUtils.ReadLong("Введите a:");
-            long b = ConsoleUtils.ReadLong("Введите b:");
+            int a = ConsoleUtils.ReadInt("Введите a:");
+            int b = ConsoleUtils.ReadInt("Введите b:");
 
             ConsoleUtils.Print("Получаем последовательность: ");
             
             Loop(a, b);
 
+            ConsoleUtils.Print("");
             ConsoleUtils.Print($"Сумма чисел будет равна {SumLoop(a, b)}");
-            ConsoleUtils.WaitKeyPress();
+            ConsoleUtils.WaitNextPress();
         }
     }
 }

@@ -204,5 +204,12 @@ namespace CS.Utils
 
             return d * d > num;
         }
+
+        public static int SimpleDivide(int a, int b)
+        {
+            if (b == 0) return 0;
+
+            return a / b;
+        }
     }
 }

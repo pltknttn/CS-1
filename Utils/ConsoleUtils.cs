@@ -24,6 +24,12 @@ namespace CS.Utils
             Console.WriteLine(msg);
         }
 
+        public static void Print(string msg, ConsoleColor foregroundColor)
+        {  
+            Console.ForegroundColor = foregroundColor;
+            Console.WriteLine(msg);
+        }
+
         /// <summary>
         /// Печать
         /// </summary>
@@ -46,6 +52,15 @@ namespace CS.Utils
         }
 
         /// <summary>
+        /// Печать
+        /// </summary>
+        /// <param name="msg"></param>
+        public static void Print()
+        {
+            Console.WriteLine("");
+        }
+
+        /// <summary>
         /// Пауза с параметром
         /// </summary>
         public static void Pause(string message)
@@ -62,10 +77,30 @@ namespace CS.Utils
             Console.ReadKey();
         }
 
-        public static void WaitKeyPress()
+        public static void WaitNextPress()
         {
-            Console.WriteLine("Для продолжения нажмите любую клавишу...");
-            Console.ReadKey();
+            Console.WriteLine("");
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                Console.WriteLine("Для продолжения нажмите клавишу F3...");
+                keyInfo = Console.ReadKey();
+                Console.WriteLine();
+            }
+            while (keyInfo.Key != ConsoleKey.F3);
+        }
+
+        public static void WaitExitPress()
+        {
+            Console.WriteLine("");
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                Console.WriteLine("Для выхода нажмите клавишу Esc...");
+                keyInfo = Console.ReadKey();
+                Console.WriteLine();
+            }
+            while (keyInfo.Key != ConsoleKey.Escape);
         }
 
         public static void Clear()
@@ -115,14 +150,17 @@ namespace CS.Utils
         public static void HomeworkTitle(int lesson)
         {            
             ConsoleUtils.Print($"Домашнее задание к уроку №{lesson}.");
-            ConsoleUtils.Print("Автор: Полятыкина Татьяна"); 
+            ConsoleUtils.Print("Автор: Полятыкина Татьяна");
+            ConsoleUtils.Print("");
         }
 
         public static void HomeworkTask(int task, string text)
         {
+            ConsoleUtils.Clear();
             ConsoleUtils.Print($"Задача № {task}.");
             ConsoleUtils.Print(text);
             ConsoleUtils.Print("Автор: Полятыкина Татьяна");
+            ConsoleUtils.Print("");
         }
     }
 }
