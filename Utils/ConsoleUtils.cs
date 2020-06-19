@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CS.Utils
@@ -110,28 +111,28 @@ namespace CS.Utils
 
         public static long ReadLong(string msg)
         {
-            Console.Write($"{msg}\t");
+            Console.Write($"{msg} ");
             long.TryParse(Console.ReadLine(), out long result);
             return result;
         }
 
         public static int ReadInt(string msg)
         {
-            Console.Write($"{msg}\t");
+            Console.Write($"{msg} ");
             int.TryParse(Console.ReadLine(), out int result);
             return result;
         }
 
         public static double ReadDouble(string msg)
         {
-            Console.Write($"{msg}\t");
+            Console.Write($"{msg} ");
             double.TryParse(Console.ReadLine().Replace('.', ','), out double result);
             return result;
         }
 
         public static decimal ReadDecimal(string msg)
         {
-            Console.Write($"{msg}\t");
+            Console.Write($"{msg} ");
             decimal.TryParse(Console.ReadLine().Replace('.', ','), out decimal result);
             return result;
         }
@@ -143,8 +144,23 @@ namespace CS.Utils
         /// <returns></returns>
         public static string Question(string msg)
         {
-            Console.Write($"{msg}\t");
+            Console.Write($"{msg} ");
             return Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Запрос значения
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public static char ReadChar(string msg)
+        {
+            Console.Write($"{msg} ");
+            ConsoleKeyInfo info = Console.ReadKey();
+            Console.WriteLine();            
+            Thread.Sleep(1000);//1мс
+
+            return info.KeyChar;
         }
 
         public static void HomeworkTitle(int lesson)

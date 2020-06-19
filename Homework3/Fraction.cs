@@ -13,9 +13,7 @@ namespace Homework3.Class
         public int Numerator { get { return numerator; } set { numerator = value; } }
 
         private int denominator;			// Знаменатель
-        public int Denominator { get { return denominator; } set { denominator = value; } }
-
-        private int sign;                   // Знак
+        public int Denominator { get { return denominator; } set { denominator = value; } } 
 
         // Возвращает наибольший общий делитель\знаменатель (Алгоритм Евклида)
         public static int GetGreatestCommonDivisor(int a, int b)
@@ -104,7 +102,7 @@ namespace Homework3.Class
             }
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return numerator + "/" + denominator;
         }
