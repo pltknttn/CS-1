@@ -43,6 +43,7 @@
     <Compile Include="ConsoleUtils.cs" />
     <Compile Include="MathUtils.cs" />
     <Compile Include="MathUtils2.cs" />
+    <Compile Include="Task.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

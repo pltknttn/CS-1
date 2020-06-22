@@ -56,6 +56,15 @@ namespace CS.Utils
         /// Печать
         /// </summary>
         /// <param name="msg"></param>
+        public static void Print(double val)
+        {
+            Console.WriteLine(val);
+
+        }
+        /// <summary>
+        /// Печать
+        /// </summary>
+        /// <param name="msg"></param>
         public static void Print()
         {
             Console.WriteLine("");
