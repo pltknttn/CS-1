@@ -8,6 +8,7 @@ namespace Homework6
 {
     public delegate bool IsStudent(Student s);
     public delegate bool IsStudent2(Student s, int a, int b);
+    public delegate bool IsStudent3(Student s, int a, int b, int c);
 
     public enum CourseEnum
     {
@@ -92,9 +93,19 @@ namespace Homework6
             return student.Age >= a && student.Age <= b;
         }
 
+        public static bool IsAge(Student student, int a, int b, int course)
+        {
+            return student.Course == course && student.Age >= a && student.Age <= b;
+        }
+
         public static bool IsCourse(Student student, int a, int b)
         {
             return student.Course >= a && student.Course <= b;
+        }
+
+        public static bool IsCourse(Student student, int a, int b, int age)
+        {
+            return student.Age == age && student.Course >= a && student.Course <= b;
         }
 
         public static bool IsMagistr(Student student)
@@ -112,12 +123,22 @@ namespace Homework6
             return count;
         }
 
-        public static int CountStudents(List<Student> students, int a, int b, IsStudent2 IS, CourseEnum course = CourseEnum.All)
+        public static int CountStudents(List<Student> students, int a, int b, IsStudent2 IS)
         {
             int count = 0;
             foreach (Student student in students)
             {
-                if ((course == CourseEnum.All || student.Course == (int)course) && IS(student, a, b)) count++;
+                if (IS(student, a, b)) count++;
+            }
+            return count;
+        }
+
+        public static int CountStudents(List<Student> students, int a, int b, int c, IsStudent3 IS)
+        {
+            int count = 0;
+            foreach (Student student in students)
+            {
+                if (IS(student, a, b, c)) count++;
             }
             return count;
         }
