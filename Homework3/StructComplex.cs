@@ -38,7 +38,7 @@ namespace Homework3.Struct
             return y;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return re + "+" + im + "i";
         }
