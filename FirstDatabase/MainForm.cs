@@ -4,11 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTOLibrary;
 using FirstDatabase.Model;
 
 namespace FirstDatabase
@@ -37,7 +39,7 @@ namespace FirstDatabase
             InitializeComponent();
 
             database = new Database(UpdateInfo);
-
+                        
             printDocument = new PrintDocument();
             printDocument.PrintPage += printDocument_PrintPage;
             previewDialog = new PrintPreviewDialog
@@ -197,12 +199,13 @@ namespace FirstDatabase
                 MessageBox.Show(this, $"Не создана база данных!", "Внимание!", MessageBoxButtons.OK);
                 return;
             }
-            bool canSave = string.IsNullOrWhiteSpace(fileName);
-            if (!canSave && Database.ShowSaveFileDialog(out fileName))
+            bool canSave = !string.IsNullOrWhiteSpace(fileName);
+            if (!canSave)
             {
-                database.Save(fileName);
+                if (Database.ShowSaveFileDialog(out fileName))
+                    database.Save(fileName);
             }
-            else if (canSave) database.Save(fileName);
+            else database.Save(fileName);
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -251,7 +254,7 @@ namespace FirstDatabase
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveAs(database.FileName);
+            SaveAs(database.FileName??Database.DefaultFileName);
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
@@ -301,6 +304,16 @@ namespace FirstDatabase
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"Программа \"База данных\" \n\r \n\rВерсия: {Application.ProductVersion} \n\rАвторы: GeekBrains, Полятыкина Татьяна", "Информация");
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            if (File.Exists(Database.DefaultFileName))
+            {
+                database.Load(Database.DefaultFileName);
+                InitializeGridView();
+                UpdateInfo();
+            }
         }
     }
 }

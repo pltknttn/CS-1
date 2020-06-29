@@ -40,9 +40,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Question";
+            this.label1.Text = "Вопрос";
             // 
             // tbQuestion
             // 
@@ -60,9 +60,9 @@
             this.cbYes.AutoSize = true;
             this.cbYes.Location = new System.Drawing.Point(18, 289);
             this.cbYes.Name = "cbYes";
-            this.cbYes.Size = new System.Drawing.Size(44, 17);
+            this.cbYes.Size = new System.Drawing.Size(63, 17);
             this.cbYes.TabIndex = 2;
-            this.cbYes.Text = "Yes";
+            this.cbYes.Text = "Истина";
             this.cbYes.UseVisualStyleBackColor = true;
             // 
             // btnOK
@@ -94,8 +94,13 @@
             this.Controls.Add(this.cbYes);
             this.Controls.Add(this.tbQuestion);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddQuestionForm";
-            this.Text = "frmAddQuestion";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Добавить";
             this.ResumeLayout(false);
             this.PerformLayout();
 

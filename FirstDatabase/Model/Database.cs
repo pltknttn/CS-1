@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTOLibrary;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,25 +10,14 @@ using System.Xml.Serialization;
 
 namespace FirstDatabase.Model
 {
-    public class Question
-    {
-        public string Text { get; set; }//Текст вопроса
-        public bool TrueFalse { get; set; }//Правда или нет
-
-        public Question() { }
-
-        public Question(string text, bool trueFalse)
-        {
-            this.Text = text;
-            this.TrueFalse = trueFalse;
-        }
-    }
-
     class Database
     {
+        public static string DefaultFileName = $"{Application.StartupPath}\\{Properties.Settings.Default.DbFileName}";
+
         public const int MaxFileSize = 200000;//байт
         public const string FileFilter = "XML files|*.XML|All files|*.*";
-
+        public const int MinRowsCount = 10;
+        
         //уведомление об изменении текущего элемента
         public Action ChangeCurrent { get; private set; } 
 
@@ -48,15 +38,8 @@ namespace FirstDatabase.Model
                 ChangeCurrent?.Invoke();
             }
         }
-
-        string _fileName;
-        public string FileName {
-            get { return _fileName; }
-            private set
-            {
-                _fileName = value;
-            }
-        }
+         
+        public string FileName { get; set; }
         public Database()
         {
             _list = new List<Question>();
@@ -115,8 +98,14 @@ namespace FirstDatabase.Model
             get { return _list.Count; }
         }
 
-        public void Save(string filename)
+        public bool Save(string filename)
         {
+            if (_list.Count < MinRowsCount)
+            {
+                MessageBox.Show($"Добавьте данные. Должно быть не менее {MinRowsCount} строк.", "Внимание!", MessageBoxButtons.OK);
+                return false;
+            }
+
             Stream fStream = null;
             try
             {
@@ -129,6 +118,8 @@ namespace FirstDatabase.Model
             {
                 fStream?.Close();
             }
+
+            return true;
         }
 
         public void Load(string filename)
@@ -164,7 +155,7 @@ namespace FirstDatabase.Model
                     if (!isSuccessful)
                     {
                         MessageBox.Show($"Выберите файл меньшего размера. Максимальный объем загружаемого файла {Database.MaxFileSize} (байт).", "Внимание!", MessageBoxButtons.OK);
-                    }
+                    }                   
                     else filename = dialog.FileName;
                 } 
             }
@@ -179,6 +170,8 @@ namespace FirstDatabase.Model
 
             using (SaveFileDialog dialog = new SaveFileDialog { Filter = Database.FileFilter })
             {
+                dialog.FileName = DefaultFileName;
+
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     isSuccessful = true;
