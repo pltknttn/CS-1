@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTrueFalse", "GameTrueFa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOLibrary", "DTOLibrary\DTOLibrary.csproj", "{5C4ADA38-E8DE-4E9A-B318-FEF9914BF583}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvToXmlConverter", "CsvToXmlConverter\CsvToXmlConverter.csproj", "{86B3EA90-FAB5-4495-9B6E-B3C95FB4853D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{5C4ADA38-E8DE-4E9A-B318-FEF9914BF583}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C4ADA38-E8DE-4E9A-B318-FEF9914BF583}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C4ADA38-E8DE-4E9A-B318-FEF9914BF583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86B3EA90-FAB5-4495-9B6E-B3C95FB4853D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86B3EA90-FAB5-4495-9B6E-B3C95FB4853D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86B3EA90-FAB5-4495-9B6E-B3C95FB4853D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86B3EA90-FAB5-4495-9B6E-B3C95FB4853D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,6 +143,7 @@ Global
 		{497CE321-85EB-4702-8D23-6E1611CFFC54} = {AF331412-8F32-4495-ABCF-88AFB196B458}
 		{62A9BDEA-995B-483E-826F-E2EA1A648B65} = {AF331412-8F32-4495-ABCF-88AFB196B458}
 		{5C4ADA38-E8DE-4E9A-B318-FEF9914BF583} = {AF331412-8F32-4495-ABCF-88AFB196B458}
+		{86B3EA90-FAB5-4495-9B6E-B3C95FB4853D} = {AF331412-8F32-4495-ABCF-88AFB196B458}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE00BA60-2589-4056-B5B6-65CC66770C27}

@@ -32,7 +32,7 @@ namespace GameTrueFalse
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonNewGame_Click(object sender, EventArgs e)
         {
             this.Hide();
             MainForm main = null;
