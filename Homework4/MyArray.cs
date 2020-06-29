@@ -477,8 +477,7 @@ namespace Homework4
             if (ss.Length == 0) throw new Exception("Пустой файл");
 
             int[] array = new int[ss.Length];
-            string s;
-            int el;
+            string s; 
             for (int i = 0; i < ss.Length; i++)
             {
                 s = ss[i];

@@ -68,7 +68,7 @@ namespace Homework3.Class
             }
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return re + "+" + im + "i";
         }
